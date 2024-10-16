@@ -32,4 +32,8 @@ class MainAdapter() : RecyclerView.Adapter<MainViewHolder>() {
         items.add(item)
         notifyDataSetChanged()
     }
+
+    fun getItems(): ArrayList<Int> {
+        return items
+    }
 }

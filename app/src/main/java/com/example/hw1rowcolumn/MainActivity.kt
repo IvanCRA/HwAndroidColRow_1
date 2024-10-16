@@ -10,6 +10,10 @@ class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
 
     private val adapter = MainAdapter()
+
+    var itemArray = ArrayList<Int>()
+
+    val ITEM_ARRAY_KEY = "itemArray"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -23,14 +27,16 @@ class MainActivity : AppCompatActivity() {
         }
 
         if (savedInstanceState !=  null) {
-
+            itemArray = savedInstanceState.getIntegerArrayList(ITEM_ARRAY_KEY) as ArrayList<Int>
+            adapter.setItems(itemArray)
         } else {
-            adapter.setItems(listOf())
+            adapter.setItems(itemArray)
         }
     }
 
-    override fun onSaveInstanceState(outState: Bundle, outPersistentState: PersistableBundle) {
-        super.onSaveInstanceState(outState)
+    override fun onSaveInstanceState(savedInstanceState: Bundle) {
+        savedInstanceState.putIntegerArrayList(ITEM_ARRAY_KEY, adapter.getItems())
+        super.onSaveInstanceState(savedInstanceState)
     }
 
 
