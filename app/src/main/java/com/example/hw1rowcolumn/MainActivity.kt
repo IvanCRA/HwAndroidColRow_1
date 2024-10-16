@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity() {
         if (savedInstanceState !=  null) {
 
         } else {
-            adapter.setItems(listOf(1))
+            adapter.setItems(listOf())
         }
     }
 
