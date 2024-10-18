@@ -52,11 +52,13 @@ uses-permission INTERNET.
 - AndroidX
 - Activity-lifecycle
 - onSaveInstanceState
+- Bundle
 - RecyclerView
+- DiffUtils
 
 ## Установка
 
-### 1. Для установки на android
+### Для установки на android
 1. Клонируйте репозиторий:
    ```bash
    git clone https://github.com/IvanCRA/HwAndroidColRow_1.git
