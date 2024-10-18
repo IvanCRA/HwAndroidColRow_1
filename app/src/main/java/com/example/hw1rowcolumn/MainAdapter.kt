@@ -9,9 +9,8 @@ class MainAdapter() : RecyclerView.Adapter<MainViewHolder>() {
     private val items = ArrayList<Int>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MainViewHolder {
-        return MainViewHolder(
-            LayoutInflater.from(parent.context).inflate(R.layout.item_view, parent, false)
-        )
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_view, parent, false)
+        return MainViewHolder(view)
     }
 
     override fun getItemCount(): Int {
