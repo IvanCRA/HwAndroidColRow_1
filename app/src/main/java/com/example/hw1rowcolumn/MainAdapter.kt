@@ -2,6 +2,8 @@ package com.example.hw1rowcolumn
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.DiffUtil.DiffResult
 import androidx.recyclerview.widget.RecyclerView
 
 class MainAdapter() : RecyclerView.Adapter<MainViewHolder>() {
@@ -21,10 +23,12 @@ class MainAdapter() : RecyclerView.Adapter<MainViewHolder>() {
         holder.bind(items[position])
     }
 
-    fun setItems(list: List<Int>) {
+    fun setItems(newList: List<Int>) {
+        val diffCallback = MainDiffCallback(items, newList)
+        val diffResult = DiffUtil.calculateDiff(diffCallback)
         items.clear()
-        items.addAll(list)
-        notifyDataSetChanged()
+        items.addAll(newList)
+        diffResult.dispatchUpdatesTo(this)
     }
 
 }
