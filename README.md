@@ -53,6 +53,7 @@ uses-permission INTERNET.
 - ViewModel
 - FloatState
 - RecyclerView
+- DiffUtils
 
 ## Установка
 
