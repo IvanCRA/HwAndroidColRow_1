@@ -28,12 +28,4 @@ class MainAdapter() : RecyclerView.Adapter<MainViewHolder>() {
         notifyDataSetChanged()
     }
 
-    fun addItems(item: Int) {
-        items.add(item)
-        notifyDataSetChanged()
-    }
-
-    fun getItems(): ArrayList<Int> {
-        return items
-    }
 }
