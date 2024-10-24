@@ -1,15 +1,17 @@
 package com.example.hw1rowcolumn
 
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.hw1rowcolumn.databinding.ActivityMainBinding
 
-class MainViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+class MainViewHolder(parent: ViewGroup) : RecyclerView.ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_view, parent, false)) {
 
-    private val text = view.findViewById<TextView>(R.id.text_view_1)
-    private val image = view.findViewById<ImageView>(R.id.image_view)
+    private val text = itemView.findViewById<TextView>(R.id.text_view_1)
+    private val image = itemView.findViewById<ImageView>(R.id.image_view)
 
     fun bind(number: Int) {
         text.text = "$number"
