@@ -10,7 +10,7 @@
 
 ## Предисловие:
 
-Здесь на ветке *V2_ViewModel* представлено решение через ``ViewModel`` + ``FlowState``, а на другой ветке *master* представлено решение через ``onSaveInstanceState``.
+Здесь на ветке *V2_ViewModel* представлено решение через ``ViewModel`` + ``StateFlow``, а на другой ветке *master* представлено решение через ``onSaveInstanceState``.
 Посмотреть другое решение можно [здесь](https://github.com/IvanCRA/HwAndroidColRow_1 "здесь")
 
 ## Задание:
