@@ -20,8 +20,8 @@ class MainActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
-        val viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
-        val adapter = MainAdapter()
+        viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
+        adapter = MainAdapter()
 
         binding.recyclerView.adapter = adapter
 
