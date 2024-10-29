@@ -13,12 +13,15 @@ class MainViewHolder(parent: ViewGroup) : RecyclerView.ViewHolder(LayoutInflater
     private val text = itemView.findViewById<TextView>(R.id.text_view_1)
     private val image = itemView.findViewById<ImageView>(R.id.image_view)
 
-    fun bind(number: Int) {
+    fun bind(number: Int, listener: MainAdapter.Listener) {
         text.text = "$number"
         if (number % 2 == 0) {
             image.setBackgroundResource(R.color.blue)
         } else {
             image.setBackgroundResource(R.color.red)
+        }
+        itemView.setOnClickListener {
+            listener.onClick(number)
         }
     }
 }

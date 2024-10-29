@@ -1,15 +1,13 @@
 package com.example.hw1rowcolumn
 
-import androidx.appcompat.app.AppCompatActivity
+import android.content.Intent
 import android.os.Bundle
-import android.os.PersistableBundle
-import androidx.lifecycle.ViewModel
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import com.example.hw1rowcolumn.databinding.ActivityMainBinding
-import kotlinx.coroutines.launch
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), MainAdapter.Listener {
 
     lateinit var binding: ActivityMainBinding
     private lateinit var viewModel: MainViewModel
@@ -21,7 +19,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(view)
 
         viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
-        adapter = MainAdapter()
+        adapter = MainAdapter(this)
 
         binding.recyclerView.adapter = adapter
 
@@ -35,9 +33,15 @@ class MainActivity : AppCompatActivity() {
             val newItem = adapter.itemCount + 1
             viewModel.addItem(newItem)
         }
+    }
 
-
-
+    override fun onClick(position: Int) {
+       val intent = Intent(this@MainActivity, ViewIntentActivity::class.java)
+        intent.putExtra(NEXT_SCREEN, position)
+        startActivity(intent)
+    }
+    companion object{
+        val NEXT_SCREEN="details_screen"
     }
 
 }
